@@ -1,0 +1,18 @@
+$MODEL:KEHOE
+
+$SECTORS:
+   Y(S)
+
+$COMMODITIES:
+   P(G)
+
+$CONSUMERS:
+   H(C)
+
+$DEMAND:H(C) s: 1.00
+   E:P(G)   Q:E(G,C)
+   D:P(G)   Q:ALPHA(G,C)
+
+$PROD:Y(S)
+   O:P(G)$(A(G,S) > 0)   Q:A(G,S)
+   I:P(G)$(A(G,S) < 0)   Q:(-A(G,S))

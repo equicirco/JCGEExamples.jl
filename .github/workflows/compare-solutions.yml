@@ -1,0 +1,19 @@
+name: Compare Solutions
+
+on:
+  workflow_dispatch:
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: julia-actions/setup-julia@v2
+        with:
+          version: '1'
+      - name: Compare with StandardCGE.jl and MPSGE
+        env:
+          JCGE_SOLVE_TESTS: '1'
+          JCGE_COMPARE_SOLUTIONS: '1'
+        run: |
+          julia --project=packages/JCGEExamples -e 'using Pkg; Pkg.instantiate(); Pkg.test()'
