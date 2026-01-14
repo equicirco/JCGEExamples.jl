@@ -6,5 +6,7 @@ Cameroon CGE model, Condon, T, Dahl, H, and Devarajan, S. Implementing a Computa
 ## Equations
 ```@eval
 using Markdown
-Markdown.parse(read(joinpath(@__DIR__, "..", "..", "models", "CamCGE", "equations.md"), String))
+Markdown.parse(read(joinpath(REPO_ROOT, "models", "CamCGE", "equations.md"), String))
+```
+```@eval
 ```

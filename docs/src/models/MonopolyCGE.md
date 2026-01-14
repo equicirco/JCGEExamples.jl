@@ -6,5 +6,7 @@ Chapter 10.4, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable Gene
 ## Equations
 ```@eval
 using Markdown
-Markdown.parse(read(joinpath(@__DIR__, "..", "..", "models", "MonopolyCGE", "equations.md"), String))
+Markdown.parse(read(joinpath(REPO_ROOT, "models", "MonopolyCGE", "equations.md"), String))
+```
+```@eval
 ```

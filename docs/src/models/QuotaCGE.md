@@ -6,5 +6,7 @@ Chapter 10.5, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable Gene
 ## Equations
 ```@eval
 using Markdown
-Markdown.parse(read(joinpath(@__DIR__, "..", "..", "models", "QuotaCGE", "equations.md"), String))
+Markdown.parse(read(joinpath(REPO_ROOT, "models", "QuotaCGE", "equations.md"), String))
+```
+```@eval
 ```

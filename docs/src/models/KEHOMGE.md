@@ -6,5 +6,7 @@ Multiple equilibria model in MPSGE, Kehoe, T, A Numerical Investigation of the M
 ## Equations
 ```@eval
 using Markdown
-Markdown.parse(read(joinpath(@__DIR__, "..", "..", "models", "KEHOMGE", "equations.md"), String))
+Markdown.parse(read(joinpath(REPO_ROOT, "models", "KEHOMGE", "equations.md"), String))
+```
+```@eval
 ```

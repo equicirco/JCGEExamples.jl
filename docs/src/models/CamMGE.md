@@ -6,5 +6,7 @@ Cameroon CGE model, MPSGE syntax, Condon, T, Dahl, H, and Devarajan, S. Implemen
 ## Equations
 ```@eval
 using Markdown
-Markdown.parse(read(joinpath(@__DIR__, "..", "..", "models", "CamMGE", "equations.md"), String))
+Markdown.parse(read(joinpath(REPO_ROOT, "models", "CamMGE", "equations.md"), String))
+```
+```@eval
 ```

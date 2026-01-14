@@ -6,5 +6,7 @@ Recursive-dynamic model, Hosoe, N., Gasawa, K., Hashimoto, H. Textbook of Comput
 ## Equations
 ```@eval
 using Markdown
-Markdown.parse(read(joinpath(@__DIR__, "..", "..", "models", "DynCGE", "equations.md"), String))
+Markdown.parse(read(joinpath(REPO_ROOT, "models", "DynCGE", "equations.md"), String))
+```
+```@eval
 ```
