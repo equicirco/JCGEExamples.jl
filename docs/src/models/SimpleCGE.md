@@ -7,102 +7,101 @@ Chapter 5, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General
 
 Equations are an auto-generated dump from the model specification.
 
-# Equations
 `prod.eqZ[BRD]`
 
-$$
+```math
 Z_{j} = b_{j} \cdot \prod_{h \in \mathcal{D}_{h}} {F_{h,j}}^{beta_h,j}
-$$
+```
 
 Domain h in { CAP, LAB }
 
 `prod.eqF[CAP,BRD]`
 
-$$
+```math
 F_{h,j} = beta_{h,j} \cdot pz_{j} \cdot Z_{j} / pf_{h}
-$$
+```
 
 `prod.eqF[LAB,BRD]`
 
-$$
+```math
 F_{h,j} = beta_{h,j} \cdot pz_{j} \cdot Z_{j} / pf_{h}
-$$
+```
 
 `prod.eqZ[MLK]`
 
-$$
+```math
 Z_{j} = b_{j} \cdot \prod_{h \in \mathcal{D}_{h}} {F_{h,j}}^{beta_h,j}
-$$
+```
 
 Domain h in { CAP, LAB }
 
 `prod.eqF[CAP,MLK]`
 
-$$
+```math
 F_{h,j} = beta_{h,j} \cdot pz_{j} \cdot Z_{j} / pf_{h}
-$$
+```
 
 `prod.eqF[LAB,MLK]`
 
-$$
+```math
 F_{h,j} = beta_{h,j} \cdot pz_{j} \cdot Z_{j} / pf_{h}
-$$
+```
 
 `factor_market.eqF[CAP]`
 
-$$
+```math
 \sum_{j \in \mathcal{D}_{j}} F_{h,j} = FF_{h}
-$$
+```
 
 Domain j in { BRD, MLK }
 
 `factor_market.eqF[LAB]`
 
-$$
+```math
 \sum_{j \in \mathcal{D}_{j}} F_{h,j} = FF_{h}
-$$
+```
 
 Domain j in { BRD, MLK }
 
 `household.eqX[BRD]`
 
-$$
+```math
 X_{i} = alpha_{i} \cdot \sum_{h \in \mathcal{D}_{h}} pf_{h} \cdot FF_{h} / px_{i}
-$$
+```
 
 Domain h in { CAP, LAB }
 
 `household.eqX[MLK]`
 
-$$
+```math
 X_{i} = alpha_{i} \cdot \sum_{h \in \mathcal{D}_{h}} pf_{h} \cdot FF_{h} / px_{i}
-$$
+```
 
 Domain h in { CAP, LAB }
 
 `price_link.eqP[BRD]`
 
-$$
+```math
 px_{i} = pz_{i}
-$$
+```
 
 `price_link.eqP[MLK]`
 
-$$
+```math
 px_{i} = pz_{i}
-$$
+```
 
 `goods_market.eqX[BRD]`
 
-$$
+```math
 X_{i} = Z_{i}
-$$
+```
 
 `goods_market.eqX[MLK]`
 
-$$
+```math
 X_{i} = Z_{i}
-$$
+```
 
 `utility.objective` maximize Cobb-Douglas utility
 

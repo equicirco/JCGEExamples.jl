@@ -5,6 +5,7 @@ makedocs(
     sitename = "JCGEExamples",
     format = Documenter.HTML(
         prettyurls = get(ENV, "CI", "false") == "true",
+        mathengine = MathJax(),
         assets = [
         "assets/logo.css",
         "assets/deepwiki-chat.css",

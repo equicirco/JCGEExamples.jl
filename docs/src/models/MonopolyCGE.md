@@ -7,344 +7,343 @@ Chapter 10.4, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable Gene
 
 Equations are an auto-generated dump from the model specification.
 
-# Equations
 `prod.eqpy[BRD]`
 
-$$
+```math
 Y_{i} = b_{i} \cdot \prod_{h \in \mathcal{D}_{h}} {F_{h,i}}^{beta_h,i}
-$$
+```
 
 Domain h in { CAP, LAB }
 
 `prod.eqF[CAP,BRD]`
 
-$$
+```math
 F_{h,i} = beta_{h,i} \cdot py_{i} \cdot Y_{i} / pf_{h}
-$$
+```
 
 `prod.eqF[LAB,BRD]`
 
-$$
+```math
 F_{h,i} = beta_{h,i} \cdot py_{i} \cdot Y_{i} / pf_{h}
-$$
+```
 
 `prod.eqX[BRD,BRD]`
 
-$$
+```math
 X_{j,i} = ax_{j,i} \cdot Z_{i}
-$$
+```
 
 `prod.eqX[MLK,BRD]`
 
-$$
+```math
 X_{j,i} = ax_{j,i} \cdot Z_{i}
-$$
+```
 
 `prod.eqY[BRD]`
 
-$$
+```math
 Y_{i} = ay_{i} \cdot Z_{i}
-$$
+```
 
 `prod.eqpzs[BRD]`
 
-$$
+```math
 pz_{i} = ay_{i} \cdot py_{i} + \sum_{j \in \mathcal{D}_{j}} ax_{j,i} \cdot pq_{j} + 0
-$$
+```
 
 Domain j in { BRD, MLK }
 
 `prod.eqpy[MLK]`
 
-$$
+```math
 Y_{i} = b_{i} \cdot \prod_{h \in \mathcal{D}_{h}} {F_{h,i}}^{beta_h,i}
-$$
+```
 
 Domain h in { CAP, LAB }
 
 `prod.eqF[CAP,MLK]`
 
-$$
+```math
 F_{h,i} = beta_{h,i} \cdot py_{i} \cdot Y_{i} / pf_{h}
-$$
+```
 
 `prod.eqF[LAB,MLK]`
 
-$$
+```math
 F_{h,i} = beta_{h,i} \cdot py_{i} \cdot Y_{i} / pf_{h}
-$$
+```
 
 `prod.eqX[BRD,MLK]`
 
-$$
+```math
 X_{j,i} = ax_{j,i} \cdot Z_{i}
-$$
+```
 
 `prod.eqX[MLK,MLK]`
 
-$$
+```math
 X_{j,i} = ax_{j,i} \cdot Z_{i}
-$$
+```
 
 `prod.eqY[MLK]`
 
-$$
+```math
 Y_{i} = ay_{i} \cdot Z_{i}
-$$
+```
 
 `prod.eqpzs[MLK]`
 
-$$
+```math
 pz_{i} = ay_{i} \cdot py_{i} + \sum_{j \in \mathcal{D}_{j}} ax_{j,i} \cdot pq_{j} + 0
-$$
+```
 
 Domain j in { BRD, MLK }
 
 `factor_market.eqF[CAP]`
 
-$$
+```math
 \sum_{j \in \mathcal{D}_{j}} F_{h,j} = FF_{h}
-$$
+```
 
 Domain j in { BRD, MLK }
 
 `factor_market.eqF[LAB]`
 
-$$
+```math
 \sum_{j \in \mathcal{D}_{j}} F_{h,j} = FF_{h}
-$$
+```
 
 Domain j in { BRD, MLK }
 
 `government.eqTd`
 
-$$
+```math
 Td = tau\_d \cdot (\sum_{h \in \mathcal{D}_{h}} pf_{h} \cdot FF_{h} + \sum_{i \in \mathcal{D}_{i}} RT_{i} + 0)
-$$
+```
 
 Domain h in { CAP, LAB }
 Domain i in { BRD, MLK }
 
 `government.eqTz[BRD]`
 
-$$
+```math
 Tz_{i} = {tau\_z}_{i} \cdot pz_{i} \cdot Z_{i}
-$$
+```
 
 `government.eqTm[BRD]`
 
-$$
+```math
 Tm_{i} = {tau\_m}_{i} \cdot pm_{i} \cdot M_{i}
-$$
+```
 
 `government.eqXg[BRD]`
 
-$$
+```math
 Xg_{i} = mu_{i} \cdot (Td + \sum_{j \in \mathcal{D}_{j}} Tz_{j} + \sum_{j \in \mathcal{D}_{j}} Tm_{j} - Sg) / pq_{i}
-$$
+```
 
 Domain j in { BRD, MLK }
 Domain j in { BRD, MLK }
 
 `government.eqTz[MLK]`
 
-$$
+```math
 Tz_{i} = {tau\_z}_{i} \cdot pz_{i} \cdot Z_{i}
-$$
+```
 
 `government.eqTm[MLK]`
 
-$$
+```math
 Tm_{i} = {tau\_m}_{i} \cdot pm_{i} \cdot M_{i}
-$$
+```
 
 `government.eqXg[MLK]`
 
-$$
+```math
 Xg_{i} = mu_{i} \cdot (Td + \sum_{j \in \mathcal{D}_{j}} Tz_{j} + \sum_{j \in \mathcal{D}_{j}} Tm_{j} - Sg) / pq_{i}
-$$
+```
 
 Domain j in { BRD, MLK }
 Domain j in { BRD, MLK }
 
 `government.eqSg`
 
-$$
+```math
 Sg = ssg \cdot (Td + \sum_{i \in \mathcal{D}_{i}} Tz_{i} + \sum_{i \in \mathcal{D}_{i}} Tm_{i})
-$$
+```
 
 Domain i in { BRD, MLK }
 Domain i in { BRD, MLK }
 
 `private_saving.eqSp`
 
-$$
+```math
 Sp = ssp \cdot (\sum_{h \in \mathcal{D}_{h}} pf_{h} \cdot FF_{h} + \sum_{i \in \mathcal{D}_{i}} RT_{i} + 0)
-$$
+```
 
 Domain h in { CAP, LAB }
 Domain i in { BRD, MLK }
 
 `investment.eqXv[BRD]`
 
-$$
+```math
 Xv_{i} = lambda_{i} \cdot (Sp + Sg + epsilon \cdot Sf) / pq_{i}
-$$
+```
 
 `investment.eqXv[MLK]`
 
-$$
+```math
 Xv_{i} = lambda_{i} \cdot (Sp + Sg + epsilon \cdot Sf) / pq_{i}
-$$
+```
 
 `household.eqXp[BRD]`
 
-$$
+```math
 Xp_{i} = alpha_{i} \cdot (\sum_{h \in \mathcal{D}_{h}} pf_{h} \cdot FF_{h} - Sp - Td + \sum_{j \in \mathcal{D}_{j}} RT_{j} + 0) / pq_{i}
-$$
+```
 
 Domain h in { CAP, LAB }
 Domain j in { BRD, MLK }
 
 `household.eqXp[MLK]`
 
-$$
+```math
 Xp_{i} = alpha_{i} \cdot (\sum_{h \in \mathcal{D}_{h}} pf_{h} \cdot FF_{h} - Sp - Td + \sum_{j \in \mathcal{D}_{j}} RT_{j} + 0) / pq_{i}
-$$
+```
 
 Domain h in { CAP, LAB }
 Domain j in { BRD, MLK }
 
 `prices.eqpe[BRD]`
 
-$$
+```math
 pe_{i} = epsilon \cdot pWe_{i}
-$$
+```
 
 `prices.eqpm[BRD]`
 
-$$
+```math
 pm_{i} = epsilon \cdot pWm_{i}
-$$
+```
 
 `prices.eqpe[MLK]`
 
-$$
+```math
 pe_{i} = epsilon \cdot pWe_{i}
-$$
+```
 
 `prices.eqpm[MLK]`
 
-$$
+```math
 pm_{i} = epsilon \cdot pWm_{i}
-$$
+```
 
 `bop.eqBOP`
 
-$$
+```math
 \sum_{i \in \mathcal{D}_{i}} pWe_{i} \cdot E_{i} + Sf = \sum_{i \in \mathcal{D}_{i}} pWm_{i} \cdot M_{i}
-$$
+```
 
 Domain i in { BRD, MLK }
 Domain i in { BRD, MLK }
 
 `armington.eqQ[BRD]`
 
-$$
+```math
 Q_{i} = gamma_{i} \cdot ({delta\_m}_{i} \cdot {M_{i}}^{eta_i} + {delta\_d}_{i} \cdot {D_{i}}^{eta_i})^{1/(eta_i)}
-$$
+```
 
 `armington.eqM[BRD]`
 
-$$
+```math
 M_{i} = ({gamma_{i}}^{eta_i} \cdot {delta\_m}_{i} \cdot pq_{i} / (1 + 0 + {tau\_m}_{i}) \cdot pm_{i})^{1/(1-eta_i)} \cdot Q_{i}
-$$
+```
 
 `armington.eqD[BRD]`
 
-$$
+```math
 D_{i} = ({gamma_{i}}^{eta_i} \cdot {delta\_d}_{i} \cdot pq_{i} / {pd\_scale}_{i} \cdot pd_{i})^{1/(1-eta_i)} \cdot Q_{i}
-$$
+```
 
 `armington.eqQ[MLK]`
 
-$$
+```math
 Q_{i} = gamma_{i} \cdot ({delta\_m}_{i} \cdot {M_{i}}^{eta_i} + {delta\_d}_{i} \cdot {D_{i}}^{eta_i})^{1/(eta_i)}
-$$
+```
 
 `armington.eqM[MLK]`
 
-$$
+```math
 M_{i} = ({gamma_{i}}^{eta_i} \cdot {delta\_m}_{i} \cdot pq_{i} / (1 + 0 + {tau\_m}_{i}) \cdot pm_{i})^{1/(1-eta_i)} \cdot Q_{i}
-$$
+```
 
 `armington.eqD[MLK]`
 
-$$
+```math
 D_{i} = ({gamma_{i}}^{eta_i} \cdot {delta\_d}_{i} \cdot pq_{i} / {pd\_scale}_{i} \cdot pd_{i})^{1/(1-eta_i)} \cdot Q_{i}
-$$
+```
 
 `transformation.eqZ[BRD]`
 
-$$
+```math
 Z_{i} = theta_{i} \cdot (xie_{i} \cdot {E_{i}}^{phi_i} + xid_{i} \cdot {D_{i}}^{phi_i})^{1/(phi_i)}
-$$
+```
 
 `transformation.eqE[BRD]`
 
-$$
+```math
 E_{i} = ({theta_{i}}^{phi_i} \cdot xie_{i} \cdot (1 + {tau\_z}_{i}) \cdot pz_{i} / pe_{i})^{1/(1-phi_i)} \cdot Z_{i}
-$$
+```
 
 `transformation.eqDs[BRD]`
 
-$$
+```math
 D_{i} = ({theta_{i}}^{phi_i} \cdot xid_{i} \cdot (1 + {tau\_z}_{i}) \cdot pz_{i} / pd_{i})^{1/(1-phi_i)} \cdot Z_{i}
-$$
+```
 
 `transformation.eqZ[MLK]`
 
-$$
+```math
 Z_{i} = theta_{i} \cdot (xie_{i} \cdot {E_{i}}^{phi_i} + xid_{i} \cdot {D_{i}}^{phi_i})^{1/(phi_i)}
-$$
+```
 
 `transformation.eqE[MLK]`
 
-$$
+```math
 E_{i} = ({theta_{i}}^{phi_i} \cdot xie_{i} \cdot (1 + {tau\_z}_{i}) \cdot pz_{i} / pe_{i})^{1/(1-phi_i)} \cdot Z_{i}
-$$
+```
 
 `transformation.eqDs[MLK]`
 
-$$
+```math
 D_{i} = ({theta_{i}}^{phi_i} \cdot xid_{i} \cdot (1 + {tau\_z}_{i}) \cdot pz_{i} / pd_{i})^{1/(1-phi_i)} \cdot Z_{i}
-$$
+```
 
 `rent.eqRT[BRD]`
 
-$$
+```math
 RT_{i} = ((1 - eta_{i}) / eta_{i}) \cdot pd_{i} \cdot D_{i}
-$$
+```
 
 `rent.eqRT[MLK]`
 
-$$
+```math
 RT_{i} = ((1 - eta_{i}) / eta_{i}) \cdot pd_{i} \cdot D_{i}
-$$
+```
 
 `market.eqQ[BRD]`
 
-$$
+```math
 Q_{i} = Xp_{i} + Xg_{i} + Xv_{i} + \sum_{j \in \mathcal{D}_{j}} X_{i,j}
-$$
+```
 
 Domain j in { BRD, MLK }
 
 `market.eqQ[MLK]`
 
-$$
+```math
 Q_{i} = Xp_{i} + Xg_{i} + Xv_{i} + \sum_{j \in \mathcal{D}_{j}} X_{i,j}
-$$
+```
 
 Domain j in { BRD, MLK }
 
