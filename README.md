@@ -49,20 +49,20 @@ All sections should be present (empty is allowed), and the following must be non
   - `models/<ModelName>/docs/`: optional model notes and documentation
 
 ## Models
-- `StandardCGE`: Chapter 6 (STDCGE, SEQ=276)
-- `SimpleCGE`: Chapter 5 (SPLCGE, SEQ=275)
-- `LargeCountryCGE`: Chapter 10.2 (LRGCGE, SEQ=277)
-- `TwoCountryCGE`: Chapter 10.3 (TWOCGE, SEQ=278)
-- `MonopolyCGE`: Chapter 10.4 (MONCGE, SEQ=279)
-- `QuotaCGE`: Chapter 10.5 (QUOCGE, SEQ=280)
-- `ScaleEconomyCGE`: Chapter 10.6 (IRSCGE, SEQ=281)
-- `DynCGE`: Recursive-dynamic model (DYNCGE, SEQ=410, Japanese edition)
-- `CamCGE`: Cameroon CGE model (CAMCGE, SEQ=81)
-- `CamMGE`: Cameroon CGE model (MPSGE syntax, CAMMGE, SEQ=140)
-- `CamMCP`: Cameroon CGE model as MCP (CAMMCP, SEQ=129)
-- `KEHOMGE`: Multiple equilibria model (KEHOMGE, SEQ=149)
-- `KorCGE`: Korea CGE model (KORCGE, SEQ=100, Chapter 11 in Chenery et al., 1986)
-- `KorMCP`: Korea CGE model as MCP (KORMCP, SEQ=130, Chapter 11 in Chenery et al., 1986)
+- `StandardCGE`: Chapter 6, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
+- `SimpleCGE`: Chapter 5, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
+- `LargeCountryCGE`: Chapter 10.2, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
+- `TwoCountryCGE`: Chapter 10.3, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
+- `MonopolyCGE`: Chapter 10.4, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
+- `QuotaCGE`: Chapter 10.5, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
+- `ScaleEconomyCGE`: Chapter 10.6, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
+- `DynCGE`: Recursive-dynamic model, Hosoe, N., Gasawa, K., Hashimoto, H. Textbook of Computable General Equilibrium Modeling: Programming and Simulations, 2nd Edition, University of Tokyo Press. (Japanese edition)
+- `CamCGE`: Cameroon CGE model, Condon, T, Dahl, H, and Devarajan, S. Implementing a Computable General Equilibrium Model on GAMS - The Cameroon Model. The World Bank, 1987.
+- `CamMGE`: Cameroon CGE model, MPSGE syntax, Condon, T, Dahl, H, and Devarajan, S. Implementing a Computable General Equilibrium Model on GAMS - The Cameroon Model. The World Bank, 1987.
+- `CamMCP`: Cameroon CGE model as MCP, Condon, T, Dahl, H, and Devarajan, S. Implementing a Computable General Equilibrium Model on GAMS - The Cameroon Model. The World Bank, 1987.
+- `KEHOMGE`: Multiple equilibria model in MPSGE, Kehoe, T, A Numerical Investigation of the Multiplicity of Equilibria. Mathematical Programming Study 23 (1985), 240-258.
+- `KorCGE`: Korea CGE model, Chapter 11 in Chenery et al., 1986.
+- `KorMCP`: Korea CGE model as MCP, Chapter 11 in Chenery et al., 1986.
 
 ## Optional solve tests (CI)
 Solver-based tests are gated behind `JCGE_SOLVE_TESTS=1` and are run via a manual GitHub Actions workflow:
