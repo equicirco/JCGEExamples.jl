@@ -1,7 +1,6 @@
 # DynCGE
 
-Recursive-dynamic standard CGE model ported from `dyncge.410` in the GAMS model
-library. Reference:
+Recursive-dynamic standard CGE model. Reference:
 
 Hosoe, N., Gasawa, K., Hashimoto, H. Textbook of Computable General
 Equilibrium Modeling: Programming and Simulations, 2nd Edition,
@@ -21,6 +20,6 @@ using JCGEExamples.DynCGE
 results = DynCGE.run_recursive(periods=30)
 ```
 Between periods the runner updates `FF` (mobile factors), `KK`, `Xg`, and `Sf`,
-and keeps `PRICE` fixed at 1, matching the GAMS loop logic.
+and keeps `PRICE` fixed at 1, matching the loop logic in the original formulation.
 
 Equation dump is saved in `packages/JCGEExamples/models/DynCGE/equations.md`.

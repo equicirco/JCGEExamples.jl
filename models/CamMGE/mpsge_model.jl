@@ -52,7 +52,7 @@ end
 """
     mpsge_model() -> MPSGEModel
 
-Return the Cameroon MPSGE model (from GAMS CAMMGE) as an MPSGE.jl model.
+Return the Cameroon MPSGE model as an MPSGE.jl model.
 """
 function mpsge_model()
     data = _load_data()
