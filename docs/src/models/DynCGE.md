@@ -4,9 +4,13 @@
 Recursive-dynamic model, Hosoe, N., Gasawa, K., Hashimoto, H. Textbook of Computable General Equilibrium Modeling: Programming and Simulations, 2nd Edition, University of Tokyo Press. (Japanese edition)
 
 ## Equations
-```@eval
-using Markdown
-Markdown.parse(read(joinpath(REPO_ROOT, "models", "DynCGE", "equations.md"), String))
+
+Equations are an auto-generated dump from the model specification.
+
+```@include DynCGE_equations.md
 ```
-```@eval
+
+Equations are an auto-generated dump from the model specification.
+
+```@include DynCGE_equations.md
 ```

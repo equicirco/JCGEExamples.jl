@@ -4,9 +4,13 @@
 Multiple equilibria model in MPSGE, Kehoe, T, A Numerical Investigation of the Multiplicity of Equilibria. Mathematical Programming Study 23 (1985), 240-258.
 
 ## Equations
-```@eval
-using Markdown
-Markdown.parse(read(joinpath(REPO_ROOT, "models", "KEHOMGE", "equations.md"), String))
+
+Equations are an auto-generated dump from the model specification.
+
+```@include KEHOMGE_equations.md
 ```
-```@eval
+
+Equations are an auto-generated dump from the model specification.
+
+```@include KEHOMGE_equations.md
 ```

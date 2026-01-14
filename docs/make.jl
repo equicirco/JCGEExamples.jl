@@ -1,8 +1,6 @@
 using Documenter
 using JCGEExamples
 
-const REPO_ROOT = abspath(joinpath(@__DIR__, ".."))
-
 makedocs(
     sitename = "JCGEExamples",
     format = Documenter.HTML(

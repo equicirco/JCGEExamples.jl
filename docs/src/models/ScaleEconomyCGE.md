@@ -4,9 +4,13 @@
 Chapter 10.6, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
 
 ## Equations
-```@eval
-using Markdown
-Markdown.parse(read(joinpath(REPO_ROOT, "models", "ScaleEconomyCGE", "equations.md"), String))
+
+Equations are an auto-generated dump from the model specification.
+
+```@include ScaleEconomyCGE_equations.md
 ```
-```@eval
+
+Equations are an auto-generated dump from the model specification.
+
+```@include ScaleEconomyCGE_equations.md
 ```
