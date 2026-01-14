@@ -15,7 +15,24 @@ makedocs(
     pages = [
         "Home" => "index.md",
         "Usage" => "usage.md",
-        "API" => "api.md"
+        "API" => "api.md",
+        "Models" => "models.md",
+        "Model Pages" => [
+            "StandardCGE" => "models/StandardCGE.md",
+            "SimpleCGE" => "models/SimpleCGE.md",
+            "LargeCountryCGE" => "models/LargeCountryCGE.md",
+            "TwoCountryCGE" => "models/TwoCountryCGE.md",
+            "MonopolyCGE" => "models/MonopolyCGE.md",
+            "QuotaCGE" => "models/QuotaCGE.md",
+            "ScaleEconomyCGE" => "models/ScaleEconomyCGE.md",
+            "DynCGE" => "models/DynCGE.md",
+            "CamCGE" => "models/CamCGE.md",
+            "CamMGE" => "models/CamMGE.md",
+            "CamMCP" => "models/CamMCP.md",
+            "KEHOMGE" => "models/KEHOMGE.md",
+            "KorCGE" => "models/KorCGE.md",
+            "KorMCP" => "models/KorMCP.md",
+        ],
     ],
 )
 

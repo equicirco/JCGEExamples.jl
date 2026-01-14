@@ -9,3 +9,6 @@
 
 `JCGEExamples` is part of the JCGE ecosystem. This page provides the package
 overview and entry points; the API reference is on the next page.
+
+## Models
+See the full list and equation pages in the Models section.
