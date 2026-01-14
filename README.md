@@ -65,9 +65,11 @@ All sections should be present (empty is allowed), and the following must be non
 - `KorMCP`: Korea CGE model as MCP, Chapter 11 in Chenery et al., 1986.
 
 ## Optional solve tests (CI)
-Solver-based tests are gated behind `JCGE_SOLVE_TESTS=1` and are run via a manual GitHub Actions workflow:
+Solver-based tests are gated behind `JCGE_SOLVE_TESTS=1` and run via a manual GitHub Actions workflow:
+- Workflow name: `Solve Tests`
 - Workflow: `.github/workflows/solve-tests.yml`
 - Trigger: workflow_dispatch only
+- Command: `julia --project=packages/JCGEExamples -e 'using Pkg; Pkg.instantiate(); Pkg.test()'`
 
 ## MCP solver and PATH license
 MCP models use PATH via `PATHSolver.jl`. PATH can run without a license for small instances (up to 300 variables and 2000 non-zeros); larger problems require a license.
@@ -94,7 +96,7 @@ result = CamMCP.solve()
 ```
 
 If the problem exceeds PATH's free limits, `CamMCP.solve()` will error unless a license is provided.
-## Optional StandardCGE.jl comparison
-A separate manual workflow compares results against the external `StandardCGE.jl` package:
-- Workflow: `.github/workflows/compare-standardcge.yml`
-- Env flags: `JCGE_SOLVE_TESTS=1`, `JCGE_COMPARE_STANDARD=1`
+## Optional solution comparison
+A separate manual workflow compares results against `StandardCGE.jl` and `MPSGE`:
+- Workflow: `.github/workflows/compare-solutions.yml`
+- Env flags: `JCGE_SOLVE_TESTS=1`, `JCGE_COMPARE_SOLUTIONS=1`
