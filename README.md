@@ -122,7 +122,7 @@ If you use this package, please cite:
 
 Boero, R. *JCGEExamples.jl - Reference models and examples for JCGE.* [software], 2026.
 DOI:
-URL: https://equicirco.github.io/JCGEExamples.jl/
+URL: https://Examples.JCGE.org
 SourceCode: https://github.com/equicirco/JCGEExamples.jl
 
 ```bibtex
@@ -131,7 +131,7 @@ SourceCode: https://github.com/equicirco/JCGEExamples.jl
   author = {Boero, Riccardo},
   year   = {2026},
   doi    = {},
-  url    = {https://equicirco.github.io/JCGEExamples.jl/}
+  url    = {https://Examples.JCGE.org}
 }
 ```
 
