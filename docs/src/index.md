@@ -7,7 +7,7 @@
 </picture>
 ```
 
-`JCGEExamples` is part of the JCGE ecosystem. This page provides the package
+`JCGEExamples` is part of the [JCGE](https://jcge.org) ecosystem. This page provides the package
 overview and entry points; the API reference is on the next page.
 
 ## Models

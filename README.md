@@ -10,10 +10,10 @@
 A Computable General Equilibrium (CGE) model is a quantitative economic model that represents an economy as interconnected markets for goods and services, factors of production, institutions, and the rest of the world. It is calibrated with data (typically a Social Accounting Matrix) and solved numerically as a system of nonlinear equations until equilibrium conditions (zero-profit, market-clearing, and income-balance) hold within tolerance.
 
 ## What is JCGE?
-JCGE is a block-based CGE modeling and execution framework in Julia. It defines a shared RunSpec structure and reusable blocks so models can be assembled, validated, solved, and compared consistently across packages.
+[JCGE](https://jcge.org) is a block-based CGE modeling and execution framework in Julia. It defines a shared RunSpec structure and reusable blocks so models can be assembled, validated, solved, and compared consistently across packages.
 
 ## What is this package?
-A package that bundles **model definitions** (as submodules) for the JCGE ecosystem.
+A package that bundles **model definitions** (as submodules) for the [JCGE](https://jcge.org) ecosystem.
 
 ## What belongs here
 - Named model modules implemented as Julia submodules.
@@ -100,3 +100,39 @@ If the problem exceeds PATH's free limits, `CamMCP.solve()` will error unless a 
 A separate manual workflow compares results against `StandardCGE.jl` and `MPSGE`:
 - Workflow: `.github/workflows/compare-solutions.yml`
 - Env flags: `JCGE_SOLVE_TESTS=1`, `JCGE_COMPARE_SOLUTIONS=1`
+
+## How to cite
+If you use the JCGE framework, please cite:
+
+Boero, R. *JCGE - Julia Computable General Equilibrium Framework* [software], 2026.
+DOI: 10.5281/zenodo.18282436
+URL: https://JCGE.org
+
+```bibtex
+@software{boero_jcge_2026,
+  title  = {JCGE - Julia Computable General Equilibrium Framework},
+  author = {Boero, Riccardo},
+  year   = {2026},
+  doi    = {10.5281/zenodo.18282436},
+  url    = {https://JCGE.org}
+}
+```
+
+If you use this package, please cite:
+
+Boero, R. *JCGEExamples.jl - Reference models and examples for JCGE.* [software], 2026.
+DOI:
+URL: https://equicirco.github.io/JCGEExamples.jl/
+SourceCode: https://github.com/equicirco/JCGEExamples.jl
+
+```bibtex
+@software{boero_jcgeexamples_2026,
+  title  = {JCGEExamples.jl - Reference models and examples for JCGE.},
+  author = {Boero, Riccardo},
+  year   = {2026},
+  doi    = {},
+  url    = {https://equicirco.github.io/JCGEExamples.jl/}
+}
+```
+
+If you use a specific tagged release, please cite the version DOI assigned on Zenodo for that release (preferred for exact reproducibility).

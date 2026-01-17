@@ -17,6 +17,7 @@ makedocs(
         "Home" => "index.md",
         "Usage" => "usage.md",
         "API" => "api.md",
+        "Citation" => "citation.md",
         "Models" => "models.md",
         "Model Pages" => [
             "StandardCGE" => "models/StandardCGE.md",
