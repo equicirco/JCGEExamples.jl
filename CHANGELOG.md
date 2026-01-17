@@ -12,8 +12,9 @@ Security: For vulnerabilities.
 
 ## [0.1.0] - unreleased
 ### Added
-- Project layout and package boundaries.
-- Initial block-based modeling interfaces and RunSpec structure.
-- Calibration and output utilities with canonical data schema.
-- Example models and integration tests.
-- Documentation scaffolding and package docs.
+- Project layout for JCGE example submodules and model resources.
+- Example model suite: StandardCGE, SimpleCGE, LargeCountryCGE, TwoCountryCGE, MonopolyCGE, QuotaCGE, ScaleEconomyCGE, DynCGE.
+- Cameroon models: CamCGE (CGE), CamMGE (MPSGE), CamMCP (MCP).
+- KEHOMGE multiple-equilibria model and Korea CGE/MCP variants.
+- Model equation dumps and documentation pages per model.
+- CI workflows for core tests, solver tests, and solution comparison.

@@ -21,8 +21,6 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [sources]
 JCGEBlocks = {url = "https://github.com/equicirco/JCGEBlocks.jl"}
-JCGECalibrate = {url = "https://github.com/equicirco/JCGECalibrate.jl"}
-JCGECore = {url = "https://github.com/equicirco/JCGECore.jl"}
 JCGERuntime = {url = "https://github.com/equicirco/JCGERuntime.jl"}
 
 [compat]
