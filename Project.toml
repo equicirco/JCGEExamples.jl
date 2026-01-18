@@ -21,7 +21,6 @@ Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 
 [sources]
 JCGEBlocks = {url = "https://github.com/equicirco/JCGEBlocks.jl"}
-JCGERuntime = {url = "https://github.com/equicirco/JCGERuntime.jl"}
 
 [compat]
 CSV = "0.10"
