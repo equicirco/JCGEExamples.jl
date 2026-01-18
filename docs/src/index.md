@@ -7,8 +7,11 @@
 </picture>
 ```
 
-`JCGEExamples` is part of the [JCGE](https://jcge.org) ecosystem. This page provides the package
-overview and entry points; the API reference is on the next page.
+`JCGEExamples` is part of the [JCGE](https://jcge.org) ecosystem. This page introduces the full
+documentation site in the same order as the navigation:
 
-## Models
-See the full list and equation pages in the Models section.
+1. [Usage](usage.md): how to load and run the example models.
+2. [API](api.md): module-level API reference for `JCGEExamples`.
+3. [Models](models.md): model index with literature references and links to equation pages.
+4. Model Pages: individual pages per model with equation dumps.
+5. [Citation](citation.md): how to cite JCGE and this package.
