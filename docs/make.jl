@@ -7,6 +7,7 @@ makedocs(
         prettyurls = get(ENV, "CI", "false") == "true",
         mathengine = MathJax(),
         assets = [
+        "assets/favicon.ico",
         "assets/logo.css",
         "assets/deepwiki-chat.css",
         "assets/deepwiki-chat.js",
