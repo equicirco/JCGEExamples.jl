@@ -2,8 +2,8 @@
 
 Reference list of all bundled models with links to their equation pages.
 
-- [StandardCGE](models/StandardCGE.md): Chapter 6, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
 - [SimpleCGE](models/SimpleCGE.md): Chapter 5, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
+- [StandardCGE](models/StandardCGE.md): Chapter 6, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
 - [LargeCountryCGE](models/LargeCountryCGE.md): Chapter 10.2, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
 - [TwoCountryCGE](models/TwoCountryCGE.md): Chapter 10.3, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.
 - [MonopolyCGE](models/MonopolyCGE.md): Chapter 10.4, Hosoe, N, Gasawa, K, and Hashimoto, H. Handbook of Computable General Equilibrium Modeling. University of Tokyo Press, Tokyo, Japan, 2004.

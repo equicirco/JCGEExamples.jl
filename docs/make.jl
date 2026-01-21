@@ -20,8 +20,8 @@ makedocs(
         "API" => "api.md",
         "Models" => "models.md",
         "Model Pages" => [
-            "StandardCGE" => "models/StandardCGE.md",
             "SimpleCGE" => "models/SimpleCGE.md",
+            "StandardCGE" => "models/StandardCGE.md",
             "LargeCountryCGE" => "models/LargeCountryCGE.md",
             "TwoCountryCGE" => "models/TwoCountryCGE.md",
             "MonopolyCGE" => "models/MonopolyCGE.md",
