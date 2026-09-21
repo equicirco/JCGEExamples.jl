@@ -17,6 +17,7 @@ export CamMCP
 export KEHOMGE
 export KorCGE
 export KorMCP
+export GTAP7
 
 include("../models/StandardCGE/StandardCGE.jl")
 include("../models/SimpleCGE/SimpleCGE.jl")
@@ -32,5 +33,6 @@ include("../models/CamMCP/CamMCP.jl")
 include("../models/KEHOMGE/KEHOMGE.jl")
 include("../models/KorCGE/KorCGE.jl")
 include("../models/KorMCP/KorMCP.jl")
+include("../models/GTAP7/GTAP7.jl")
 
 end # module

@@ -1,7 +1,9 @@
 cff-version: 1.2.0
 title: JCGEExamples.jl - Reference models and examples for JCGE.
 message: >-
-  v0.1.0 - Initial public release.
+  v0.2.0 - Adds the GTAP7 multi-region reference model, normalized input schema,
+  open synthetic fixture, and declared counterfactual shocks.
+version: 0.2.0
 type: software
 doi: 10.5281/zenodo.18335739
 authors:

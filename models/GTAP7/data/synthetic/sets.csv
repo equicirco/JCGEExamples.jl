@@ -1,0 +1,7 @@
+set,item
+region,EAST
+region,WEST
+product,AGRI
+product,MANUF
+factor,CAPITAL
+factor,LABOUR

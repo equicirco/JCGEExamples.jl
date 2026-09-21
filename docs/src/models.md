@@ -16,3 +16,4 @@ Reference list of all bundled models with links to their equation pages.
 - [KEHOMGE](models/KEHOMGE.md): Multiple equilibria model in MPSGE, Kehoe, T, A Numerical Investigation of the Multiplicity of Equilibria. Mathematical Programming Study 23 (1985), 240-258.
 - [KorCGE](models/KorCGE.md): Korea CGE model, Chapter 11 in Chenery et al., 1986.
 - [KorMCP](models/KorMCP.md): Korea CGE model as MCP, Chapter 11 in Chenery et al., 1986.
+- [GTAP7](models/GTAP7.md): independent, data-driven port of the core GTAP Standard 7 multi-region structure, with a synthetic open fixture and declared counterfactual shocks.

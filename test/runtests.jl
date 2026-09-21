@@ -13,6 +13,7 @@ using JCGEExamples.CamMGE
 using JCGEExamples.CamMCP
 using JCGEExamples.KorCGE
 using JCGEExamples.KorMCP
+using JCGEExamples.GTAP7
 using JCGECore
 using JCGERuntime
 using JCGEBlocks
@@ -64,6 +65,118 @@ import MathOptInterface as MOI
 
     kormcp_spec = KorMCP.model()
     @test kormcp_spec.name == "KorMCP"
+
+    gtap_spec = GTAP7.model()
+    @test gtap_spec.name == "GTAP7"
+    @test validate_spec(gtap_spec).ok
+    gtap_cde_blocks = filter(block -> block isa GTAP7.CDEPrivateDemandBlock, gtap_spec.model.blocks)
+    @test length(gtap_cde_blocks) == 1
+    gtap_investment_blocks = filter(block -> block isa GTAP7.GlobalInvestmentAllocationBlock, gtap_spec.model.blocks)
+    @test length(gtap_investment_blocks) == 1
+    gtap_block(spec, name) = only(filter(block ->
+        hasproperty(block, :name) && getproperty(block, :name) == name,
+        spec.model.blocks))
+    gtap_scenarios = [
+        (:factor_endowment, (
+            endowment_region=:EAST,
+            endowment_factor=:LABOUR,
+            endowment_multiplier=1.01,
+        )),
+        (:productivity, (
+            productivity_region=:EAST,
+            productivity_product=:MANUF,
+            productivity_multiplier=1.01,
+        )),
+        (:output_tax, (
+            output_tax_region=:EAST,
+            output_tax_product=:MANUF,
+            output_tax_change=0.01,
+        )),
+        (:direct_tax, (
+            direct_tax_region=:EAST,
+            direct_tax_change=0.01,
+        )),
+        (:private_preference, (
+            private_preference_region=:EAST,
+            private_preference_product=:MANUF,
+            private_preference_multiplier=1.01,
+        )),
+        (:government_preference, (
+            government_preference_region=:EAST,
+            government_preference_product=:MANUF,
+            government_preference_multiplier=1.01,
+        )),
+        (:private_saving, (
+            private_saving_region=:EAST,
+            private_saving_multiplier=1.01,
+        )),
+        (:trade_cost, (
+            trade_route=:MANUF_EAST_WEST,
+            trade_cost_multiplier=1.01,
+        )),
+    ]
+    gtap_scenario_specs = Dict{Symbol,JCGECore.RunSpec}()
+    for (scenario_name, kwargs) in gtap_scenarios
+        gtap_scenario = GTAP7.scenario(scenario_name; kwargs...)
+        @test gtap_scenario.scenario.name == scenario_name
+        @test validate_spec(gtap_scenario).ok
+        gtap_scenario_specs[scenario_name] = gtap_scenario
+    end
+    @test_throws ErrorException GTAP7.scenario(:factor_endowment)
+
+    @test isapprox(
+        gtap_block(gtap_scenario_specs[:factor_endowment], :factor_market_EAST).params.FF[:LABOUR_EAST],
+        1.01 * gtap_block(gtap_spec, :factor_market_EAST).params.FF[:LABOUR_EAST],
+    )
+    @test isapprox(
+        gtap_block(gtap_scenario_specs[:productivity], :production_EAST).params.b[:MANUF_EAST],
+        1.01 * gtap_block(gtap_spec, :production_EAST).params.b[:MANUF_EAST],
+    )
+    @test isapprox(
+        gtap_block(gtap_scenario_specs[:output_tax], :government).params.tau_z[:MANUF_EAST],
+        gtap_block(gtap_spec, :government).params.tau_z[:MANUF_EAST] + 0.01,
+    )
+    @test isapprox(
+        gtap_block(gtap_scenario_specs[:direct_tax], :government).params.tau_d[:EAST],
+        gtap_block(gtap_spec, :government).params.tau_d[:EAST] + 0.01,
+    )
+    @test gtap_block(gtap_scenario_specs[:private_preference], :cde_households).params.cde_share[(:MANUF_EAST, :EAST)] >
+        gtap_block(gtap_spec, :cde_households).params.cde_share[(:MANUF_EAST, :EAST)]
+    @test gtap_block(gtap_scenario_specs[:government_preference], :government).params.mu[(:MANUF_EAST, :EAST)] >
+        gtap_block(gtap_spec, :government).params.mu[(:MANUF_EAST, :EAST)]
+    @test isapprox(
+        gtap_block(gtap_scenario_specs[:private_saving], :private_saving).params.ssp[:EAST],
+        1.01 * gtap_block(gtap_spec, :private_saving).params.ssp[:EAST],
+    )
+    @test isapprox(
+        gtap_block(gtap_scenario_specs[:trade_cost], :bilateral_trade).params.delivery_wedge[:MANUF_EAST_WEST],
+        1.01 * gtap_block(gtap_spec, :bilateral_trade).params.delivery_wedge[:MANUF_EAST_WEST],
+    )
+
+    gtap_data = GTAP7.load_data()
+    @test gtap_data.regions == [:EAST, :WEST]
+    @test gtap_data.products == [:AGRI, :MANUF]
+    @test length(gtap_data.routes) == 8
+    @test length(gtap_data.substitution_parameter) == 4
+    @test length(gtap_data.expansion_parameter) == 4
+
+    gtap_calibrations = Dict(
+        region => GTAP7._regional_calibration(gtap_data.sam_tables[region])
+        for region in gtap_data.regions
+    )
+    gtap_goods = GTAP7._regional_mapping(gtap_data.products, gtap_data.regions)
+    @test GTAP7._validate_flow_totals(gtap_data, gtap_calibrations) === nothing
+    gtap_cde = GTAP7._cde_parameters(gtap_data, gtap_calibrations, gtap_goods)
+    @test GTAP7._validate_cde_calibration(gtap_data, gtap_calibrations, gtap_cde, gtap_goods) === nothing
+
+    mktempdir() do temp_dir
+        malformed = joinpath(temp_dir, "malformed_gtap7_fixture")
+        cp(GTAP7.datadir(), malformed)
+        elasticity_file = joinpath(malformed, "elasticities.csv")
+        text = read(elasticity_file, String)
+        write(elasticity_file, replace(text, "AGRI,EAST,2,2,0.75,0.90" => "AGRI,EAST,2,2,0.0,0.90"))
+        @test_throws ErrorException GTAP7.load_data(malformed)
+    end
 
 
 end
@@ -194,6 +307,67 @@ if get(ENV, "JCGE_SOLVE_TESTS", "0") == "1"
             @test true
         else
             @test max_constraint_residual(result_kor) <= 1e-5
+        end
+
+        result_gtap = GTAP7.solve(; optimizer=Ipopt.Optimizer)
+        status_gtap = MOI.get(result_gtap.context.model, MOI.TerminationStatus())
+        @test status_gtap in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
+        @test JCGERuntime.validate_model(result_gtap.context; level=:basic).ok
+        gtap_residuals = JCGERuntime.evaluate_residuals!(result_gtap.context)
+        @test JCGERuntime.summarize_residuals(gtap_residuals).max_abs <= 1.0e-7
+        for variable in (:Xp_AGRI_EAST, :Xp_MANUF_EAST, :Xp_AGRI_WEST, :Xp_MANUF_WEST)
+            @test isapprox(JuMP.value(result_gtap.context.variables[variable]), 70.0; atol=1.0e-6, rtol=1.0e-8)
+        end
+
+        gtap_solve_scenarios = [
+            (:factor_endowment, (
+                endowment_region=:EAST,
+                endowment_factor=:LABOUR,
+                endowment_multiplier=1.01,
+            )),
+            (:productivity, (
+                productivity_region=:EAST,
+                productivity_product=:MANUF,
+                productivity_multiplier=1.01,
+            )),
+            (:output_tax, (
+                output_tax_region=:EAST,
+                output_tax_product=:MANUF,
+                output_tax_change=0.01,
+            )),
+            (:direct_tax, (
+                direct_tax_region=:EAST,
+                direct_tax_change=0.01,
+            )),
+            (:private_preference, (
+                private_preference_region=:EAST,
+                private_preference_product=:MANUF,
+                private_preference_multiplier=1.01,
+            )),
+            (:government_preference, (
+                government_preference_region=:EAST,
+                government_preference_product=:MANUF,
+                government_preference_multiplier=1.01,
+            )),
+            (:private_saving, (
+                private_saving_region=:EAST,
+                private_saving_multiplier=1.01,
+            )),
+            (:trade_cost, (
+                trade_route=:MANUF_EAST_WEST,
+                trade_cost_multiplier=1.01,
+            )),
+        ]
+        for (scenario_name, kwargs) in gtap_solve_scenarios
+            result_gtap_scenario = GTAP7.solve(
+                scenario_name=scenario_name,
+                kwargs...,
+                optimizer=Ipopt.Optimizer,
+            )
+            status_gtap_scenario = MOI.get(result_gtap_scenario.context.model, MOI.TerminationStatus())
+            @test status_gtap_scenario in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
+            scenario_residuals = JCGERuntime.evaluate_residuals!(result_gtap_scenario.context)
+            @test JCGERuntime.summarize_residuals(scenario_residuals).max_abs <= 2.0e-5
         end
 
     end

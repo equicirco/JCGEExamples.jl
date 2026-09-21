@@ -1,0 +1,5 @@
+product,region,armington_elasticity,cet_elasticity,subpar,incpar
+AGRI,EAST,2,2,0.75,0.90
+MANUF,EAST,2,2,0.90,1.10
+AGRI,WEST,2,2,0.80,0.95
+MANUF,WEST,2,2,0.85,1.05

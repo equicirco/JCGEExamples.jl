@@ -1,6 +1,6 @@
 name = "JCGEExamples"
 uuid = "0291785c-4d3c-45ec-ba8e-d8f5428f97c2"
-version = "0.1.0"
+version = "0.2.0"
 authors = ["Riccardo Boero <ribo@nilu.no>"]
 
 [deps]

@@ -63,6 +63,7 @@ All sections should be present (empty is allowed), and the following must be non
 - `KEHOMGE`: Multiple equilibria model in MPSGE, Kehoe, T, A Numerical Investigation of the Multiplicity of Equilibria. Mathematical Programming Study 23 (1985), 240-258.
 - `KorCGE`: Korea CGE model, Chapter 11 in Chenery et al., 1986.
 - `KorMCP`: Korea CGE model as MCP, Chapter 11 in Chenery et al., 1986.
+- `GTAP7`: independent, data-driven implementation of the core GTAP Standard 7 multi-region structure, with an open synthetic fixture and factor-endowment, productivity, tax, preference, saving, and delivery-cost shocks.
 
 ## Optional solve tests (CI)
 Solver-based tests are gated behind `JCGE_SOLVE_TESTS=1` and run via a manual GitHub Actions workflow:
