@@ -64,6 +64,7 @@ All sections should be present (empty is allowed), and the following must be non
 - `KorCGE`: Korea CGE model, Chapter 11 in Chenery et al., 1986.
 - `KorMCP`: Korea CGE model as MCP, Chapter 11 in Chenery et al., 1986.
 - `GTAP7`: independent, data-driven implementation of the core GTAP Standard 7 multi-region structure, with an open synthetic fixture and factor-endowment, productivity, tax, preference, saving, and delivery-cost shocks.
+- `GTAP7MCP`: PATH/MCP companion to the compact GTAP7 model, with the same open synthetic fixture and declared counterfactuals.
 
 ## Optional solve tests (CI)
 Solver-based tests are gated behind `JCGE_SOLVE_TESTS=1` and run via a manual GitHub Actions workflow:

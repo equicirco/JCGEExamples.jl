@@ -35,6 +35,7 @@ makedocs(
             "KorCGE" => "models/KorCGE.md",
             "KorMCP" => "models/KorMCP.md",
             "GTAP7" => "models/GTAP7.md",
+            "GTAP7MCP" => "models/GTAP7MCP.md",
         ],
         "Citation" => "citation.md"
     ],

@@ -10,6 +10,10 @@ Removed: For features removed in this release.
 Fixed: For any bug fixes.
 Security: For vulnerabilities.
 
+## [0.2.1] - 2026-09-22
+### Added
+- GTAP7MCP: a PATH/MCP companion to the compact GTAP7 example, sharing its synthetic fixture and declared counterfactuals.
+
 ## [0.2.0] - 2026-09-21
 ### Added
 - GTAP7: an independent, data-driven implementation of the core GTAP Standard 7 multi-region structure, using a normalized input contract and an open synthetic fixture.

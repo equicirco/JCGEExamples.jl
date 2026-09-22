@@ -14,6 +14,7 @@ using JCGEExamples.CamMCP
 using JCGEExamples.KorCGE
 using JCGEExamples.KorMCP
 using JCGEExamples.GTAP7
+using JCGEExamples.GTAP7MCP
 using JCGECore
 using JCGERuntime
 using JCGEBlocks
@@ -123,6 +124,13 @@ import MathOptInterface as MOI
         gtap_scenario_specs[scenario_name] = gtap_scenario
     end
     @test_throws ErrorException GTAP7.scenario(:factor_endowment)
+
+    gtap_mcp_spec = GTAP7MCP.model()
+    @test gtap_mcp_spec.name == "GTAP7MCP"
+    @test validate_spec(gtap_mcp_spec).ok
+    @test GTAP7MCP.scenario(:trade_cost;
+        trade_route=:MANUF_EAST_WEST,
+        trade_cost_multiplier=1.01).scenario.name == :trade_cost
 
     @test isapprox(
         gtap_block(gtap_scenario_specs[:factor_endowment], :factor_market_EAST).params.FF[:LABOUR_EAST],
@@ -386,6 +394,11 @@ end
     result_kehomge = KEHOMGE.solve()
     @test result_kehomge.summary.count >= 0
 
+    result_gtap_mcp = GTAP7MCP.solve()
+    status_gtap_mcp = MOI.get(result_gtap_mcp.context.model, MOI.TerminationStatus())
+    @test status_gtap_mcp in (MOI.OPTIMAL, MOI.LOCALLY_SOLVED, MOI.FEASIBLE_POINT)
+    @test result_gtap_mcp.summary.max_abs <= 1.0e-7
+
 
     for eq in result_mcp.context.equations
         payload = eq.payload
@@ -410,6 +423,13 @@ end
     for eq in result_kehomge.context.equations
         payload = eq.payload
         if payload isa NamedTuple && eq.block != :init && eq.block != :numeraire
+            @test haskey(payload, :mcp_var)
+        end
+    end
+    for eq in result_gtap_mcp.context.equations
+        payload = eq.payload
+        expr = payload isa NamedTuple ? get(payload, :expr, nothing) : nothing
+        if expr isa JCGECore.EEq
             @test haskey(payload, :mcp_var)
         end
     end

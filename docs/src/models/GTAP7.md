@@ -28,7 +28,8 @@ productivity, output and direct taxes, private and government preferences,
 private saving, and a delivery-cost change on one trade route. The latter acts
 on the route's calibrated delivery wedge only; it is not a tariff or a
 transport-margin account. GTAP-specific production nests, transport margins,
-tariff accounting, and an alternative MCP formulation remain later extensions.
+and tariff accounting remain later extensions. The same compact scope is also
+available as the [GTAP7MCP](GTAP7MCP.md) PATH/MCP formulation.
 
 See the bundled [input schema](https://github.com/equicirco/JCGEExamples.jl/blob/main/models/GTAP7/schema.md)
 for the portable table contract for user-supplied licensed GTAP aggregations.
